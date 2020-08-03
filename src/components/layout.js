@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {Fragment} from 'react'
 import {Route, Switch} from 'react-router'
 
 import Home from '../pages/Home'
+import Header from "./header";
 
 const routes = (
     <Switch>
@@ -10,9 +11,12 @@ const routes = (
 )
 
 const Layout = () => (
-    <div className="col-lg-12">
-        {routes}
-    </div>
+    <Fragment>
+        <Header/>
+        <div className="col-lg-12">
+            {routes}
+        </div>
+    </Fragment>
 )
 
 export default Layout;
