@@ -3,9 +3,9 @@ import {MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, M
 
 const Cart = ({cart, add}) => {
     return (
-        <MDBCol>
+        <MDBCol className="col-lg-4 col-md-12 mb-4">
             <MDBCard>
-                <MDBCardImage className="img-fluid" src={cart.img} waves/>
+                <MDBCardImage className="card-img-top" src={cart.img} waves/>
                 <MDBCardBody>
                     <MDBCardTitle>{cart.title}</MDBCardTitle>
                     <MDBCardText>{cart.info}</MDBCardText>
