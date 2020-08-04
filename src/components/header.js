@@ -1,6 +1,5 @@
 import React from 'react';
 
-import {MDBIcon} from 'mdbreact';
 import {useSelector} from "react-redux";
 
 import {getTotalBasketCount} from '../selectors'
@@ -21,18 +20,12 @@ const Header = () => {
                         aria-controls="basicExampleNav1" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><div className="waves-effect">Home</div></li>
-                    <li className="breadcrumb-item"><div className="waves-effect">Templates</div></li>
-                    <li className="breadcrumb-item active"><div className="waves-effect">E-commerce</div></li>
-                </ol>
                 <div className="collapse navbar-collapse" id="basicExampleNav1">
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
                             <div className="nav-link navbar-link-2 waves-effect">
                                 <span className="badge badge-pill red">{totalBasketCount}</span>
-                                {/*<i className="fas fa-shopping-cart pl-0"></i>*/}
-                                <MDBIcon fas className="fa-shopping-cart pl-0"/>
+                                <i className="fas fa-shopping-cart pl-0"></i>
                             </div>
                         </li>
                         <li className="nav-item">
