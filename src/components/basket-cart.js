@@ -1,20 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-const BasketCart = () => {
+const BasketCart = ({cart}) => {
+
+    const [inputValue, setInputValue] = useState(0);
+
+    const handleOnChange = event => {
+        const {value} = event.target;
+        console.log(value)
+        setInputValue(value);
+    };
+
+    console.log(cart)
+
     return (
         <div className="basket-cart">
             <div className="row mb-4">
                 <div className="col-md-5 col-lg-3 col-xl-3">
                     <div className="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
-                        <img className="img-fluid w-100"
-                             src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12a.jpg"
-                             alt="Sample"/>
+                        <img className="img-fluid w-100" src={cart.img} alt="Sample"/>
                         <div>
                             <div className="mask waves-effect waves-light">
-                                <img className="img-fluid w-100"
-                                     src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg"/>
-                                <div
-                                    className="mask rgba-black-slight waves-effect waves-light"></div>
+                                <img className="img-fluid w-100" src={cart.img}/>
+                                <div className="mask rgba-black-slight waves-effect waves-light"></div>
                             </div>
                         </div>
                     </div>
@@ -30,12 +37,9 @@ const BasketCart = () => {
                             </div>
                             <div>
                                 <div className="def-number-input number-input safari_only mb-0 w-100">
-                                    <button
-                                        className="minus"></button>
-                                    <input className="quantity" min="0" name="quantity"
-                                           type="number"/>
-                                    <button
-                                        className="plus"></button>
+                                    <button className="minus"></button>
+                                    <input className="quantity" min="0" name="quantity" value={cart.quantity} onChange={handleOnChange} type="number"/>
+                                    <button className="plus"></button>
                                 </div>
                                 <small
                                     className="form-text text-muted text-center">
@@ -52,7 +56,7 @@ const BasketCart = () => {
                                    className="card-link-secondary small text-uppercase"><i
                                     className="fas fa-heart mr-1"></i> Move to wish list </a>
                             </div>
-                            <p className="mb-0"><span><strong>$17.99</strong></span></p>
+                            <p className="mb-0"><span><strong>{cart.price}</strong></span></p>
                         </div>
                     </div>
                 </div>

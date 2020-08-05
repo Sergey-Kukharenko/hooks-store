@@ -4,11 +4,12 @@ import {
     arrayObjectsByKeys,
     compose,
     sumValuesArray,
-    unique
+    unique,
+    addFieldToObj
 } from "./utils";
 import * as R from "ramda";
 
-export const getPhoneById = (state, id) => state.phones[id];
+export const getById = (state, id, keyName) => state[keyName][id];
 
 export const getActiveCategoryId = ownProps => ownProps.match.params.id;
 
@@ -18,7 +19,14 @@ export const getRenderedPhonesLength = state => state.phonesPage.ids.length;
 
 export const getTotalBasketCount = state => state.basket.length;
 
-export const arrayOfValues = state => arrIds => arrIds.map(id => getPhoneById(state, id));
+export const arrayOfValues = state => arrIds => arrIds.map(id => getById(state, id, 'carts'));
+
+// export const getTotalBasketPrice = state =>
+//     compose(
+//         sumValuesArray,
+//         arrayObjectsByKeys('price'),
+//         arrayOfValues(state))
+//     (state.basket);
 
 export const getTotalBasketPrice = state =>
     compose(
@@ -35,7 +43,7 @@ export const getCategories = state => R.values(state.categories) // получа
 
 // const filterByKey = (key, category) => array => array.filter(item => item[key] === category);
 
-const addFieldToObj = (obj, field, value) => Object.assign(obj, {[field]: +value});
+
 
 // export const getPhones = (state, ownProps) => compose(
 //     filter(state, 'name'),
@@ -43,21 +51,23 @@ const addFieldToObj = (obj, field, value) => Object.assign(obj, {[field]: +value
 //     arrayOfValues(state)
 // )(state.phonesPage.ids);
 
-export const getBasketPhonesWithCount = state => {
+const mapItemsWithNewField = func => array => array.map(item => func(item))
 
-    const phoneCount = id => R.compose(
+export const getBasketItemsWithCount = state => {
+
+    const itemCount = id => compose(
         arrayLength,
         arrayIdenticalValues(id)
     )(state.basket);
 
-    const phoneWithCount = phone => addFieldToObj(phone, 'count', phoneCount(phone.id));
+    const itemWithCount = item => addFieldToObj(item, 'quantity', itemCount(item.id));
 
     const uniqueIds = unique(state.basket);
 
-    const phones = R.compose(
-        R.map(phoneWithCount),
+    const items = compose(
+        mapItemsWithNewField(itemWithCount),
         arrayOfValues(state)
     )(uniqueIds);
 
-    return phones
+    return items
 };

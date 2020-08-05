@@ -6,8 +6,8 @@ import {getTotalBasketCount} from '../selectors'
 
 const Header = () => {
 
-    const {totalBasketCount} = useSelector(state => ({
-        totalBasketCount: getTotalBasketCount(state)
+    const {totalBasketCount, totalPrice} = useSelector(state => ({
+        totalBasketCount: getTotalBasketCount(state),
     }))
 
     const [state, setState] = useState(false);

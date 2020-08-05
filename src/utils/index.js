@@ -32,7 +32,7 @@ export const mergeIdToArr = (array, id) => [...array, id];
 
 export const arrayObjectsByKeys = key => array => array.map(item => item[key]);
 
-export const sumValuesArray = arr => arr.reduce((a, b) => Number(a) + Number(b), 0);
+export const sumValuesArray = arr => +arr.reduce((a, b) => Number(a) + Number(b), 0).toFixed(2);
 
 export const unique = (arr) => {
     const result = [];
@@ -53,3 +53,5 @@ export const isNull = x => x == null;
 export const removeUniqueArray = (value, array) => array.filter(item => item !== value);
 
 export const isArrayEmpty = array => array.length === 0;
+
+export const addFieldToObj = (obj, field, value) => Object.assign(obj, {[field]: +value});

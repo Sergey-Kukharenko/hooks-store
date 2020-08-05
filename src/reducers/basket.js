@@ -6,7 +6,6 @@ const initialState = [];
 export default (state = initialState, {type, payload}) => {
     switch (type) {
         case ADD_TO_BASKET:
-            console.log(mergeIdToArr(state, payload))
             return mergeIdToArr(state, payload);
 
         case REMOVE_FROM_BASKET:

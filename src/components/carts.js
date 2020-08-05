@@ -22,9 +22,7 @@ const Carts = () => {
     return (
         <div className="row">
             {
-                Object.values(carts).map((cart, idx) => {
-                    return <Cart cart={cart} add={add} key={idx}/>
-                })
+                Object.values(carts).map((cart, idx) => <Cart cart={cart} add={add} key={idx}/>)
             }
         </div>
     )
