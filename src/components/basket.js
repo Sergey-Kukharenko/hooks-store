@@ -17,15 +17,15 @@ const Basket = () => {
                         <BasketDelivery/>
                     </div>
                     <div className="card mb-4">
-                        <BasketAccept/>
+                        {/*<BasketAccept/>*/}
                     </div>
                 </div>
                 <div className="col-lg-4">
                     <div className="card mb-4">
-                        <BasketTotal/>
+                        {/*<BasketTotal/>*/}
                     </div>
                     <div className="card mb-4">
-                        <BasketCode/>
+                        {/*<BasketCode/>*/}
                     </div>
                 </div>
 

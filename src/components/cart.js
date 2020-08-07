@@ -1,7 +1,7 @@
 import React from 'react';
 import {MDBBtn, MDBCard, MDBCardBody, MDBCardImage, MDBCardText, MDBCardTitle, MDBCol} from 'mdbreact';
 
-const Cart = ({cart, add}) => {
+const Cart = ({cart, addCart, inc, dec}) => {
     return (
         <MDBCol className="col-lg-4 col-md-12 mb-4">
             <MDBCard>
@@ -9,7 +9,7 @@ const Cart = ({cart, add}) => {
                 <MDBCardBody>
                     <MDBCardTitle>{cart.title}</MDBCardTitle>
                     <MDBCardText>{cart.info}</MDBCardText>
-                    <MDBBtn onClick={() => add(cart.id)}>Click</MDBBtn>
+                    <MDBBtn onClick={() => addCart(cart)}>Click</MDBBtn>
                 </MDBCardBody>
             </MDBCard>
         </MDBCol>

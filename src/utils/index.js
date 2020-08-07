@@ -50,8 +50,26 @@ export const findValInKeyOfObj = (object, key, value) => object[key] === value;
 
 export const isNull = x => x == null;
 
-export const removeUniqueArray = (value, array) => array.filter(item => item !== value);
+export const removeUniqueArray = (array, value) => array.filter(item => item !== value);
 
 export const isArrayEmpty = array => array.length === 0;
 
 export const addFieldToObj = (obj, field, value) => Object.assign(obj, {[field]: +value});
+
+
+export const findIdArray = (array, obj) => array.find(item => item.id === obj.id);
+
+export const updateFieldItem = (array, obj, num) => array.map(item =>
+    (item.id === obj.id)
+        ? {
+            ...obj,
+            quantity: item.quantity + num
+        }
+        : item);
+
+export const updateItem = (array, obj, num) => {
+    if (findIdArray(array, obj)) {
+        return updateFieldItem(array, obj, num)
+    }
+    return [...array, {...obj, quantity: 1}];
+}

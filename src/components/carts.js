@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 
-import {addToBasket, fetchPhones} from '../actions'
+import {fetchPhones, increment} from '../actions'
 import Cart from "./cart";
-
 
 const Carts = () => {
 
@@ -17,12 +16,12 @@ const Carts = () => {
         dispatch(fetchPhones())
     }, [dispatch])
 
-    const add = id => dispatch(addToBasket(id))
+    const addCart = item => dispatch(increment(item))
 
     return (
         <div className="row">
             {
-                Object.values(carts).map((cart, idx) => <Cart cart={cart} add={add} key={idx}/>)
+                Object.values(carts).map((cart, idx) => <Cart cart={cart} addCart={addCart} key={idx}/>)
             }
         </div>
     )

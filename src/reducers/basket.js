@@ -1,12 +1,19 @@
-import {mergeIdToArr, removeUniqueArray} from '../utils';
-import {ADD_TO_BASKET, CLEAN_BASKET, REMOVE_FROM_BASKET} from '../actions/types';
+import {removeUniqueArray, updateItem} from '../utils';
+import {CLEAN_BASKET, DEC, INC, REMOVE_FROM_BASKET} from '../actions/types';
 
 const initialState = [];
 
 export default (state = initialState, {type, payload}) => {
     switch (type) {
-        case ADD_TO_BASKET:
-            return mergeIdToArr(state, payload);
+
+        case INC:
+            return updateItem(state, payload, 1)
+
+        case DEC:
+            if ((payload.quantity <= 1)) {
+                return removeUniqueArray(state, payload);
+            }
+            return updateItem(state, payload, -1)
 
         case REMOVE_FROM_BASKET:
             return removeUniqueArray(payload, state);

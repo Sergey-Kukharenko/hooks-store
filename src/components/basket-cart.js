@@ -1,16 +1,13 @@
 import React, {useState} from 'react';
 
-const BasketCart = ({cart}) => {
+const BasketCart = ({cart, removeCart, inc, dec}) => {
 
     const [inputValue, setInputValue] = useState(0);
 
     const handleOnChange = event => {
         const {value} = event.target;
-        console.log(value)
         setInputValue(value);
     };
-
-    console.log(cart)
 
     return (
         <div className="basket-cart">
@@ -37,9 +34,17 @@ const BasketCart = ({cart}) => {
                             </div>
                             <div>
                                 <div className="def-number-input number-input safari_only mb-0 w-100">
-                                    <button className="minus"></button>
+                                    <button
+                                        className="minus"
+                                        onClick={() => dec(cart)}
+                                    ></button>
                                     <input className="quantity" min="0" name="quantity" value={cart.quantity} onChange={handleOnChange} type="number"/>
-                                    <button className="plus"></button>
+                                    <button
+                                        className="plus"
+                                        onClick={() => inc(cart)}
+                                    >
+
+                                    </button>
                                 </div>
                                 <small
                                     className="form-text text-muted text-center">
@@ -49,9 +54,13 @@ const BasketCart = ({cart}) => {
                         </div>
                         <div className="d-flex justify-content-between align-items-center">
                             <div>
-                                <a href="#!" type="button"
-                                   className="card-link-secondary small text-uppercase mr-3"><i
-                                    className="fas fa-trash-alt mr-1"></i> Remove item </a>
+                                <a
+                                    className="card-link-secondary small text-uppercase mr-3"
+                                    onClick={() => removeCart(cart.id)}
+                                >
+                                    <i className="fas fa-trash-alt mr-1"></i>
+                                    Remove item
+                                </a>
                                 <a href="#!" type="button"
                                    className="card-link-secondary small text-uppercase"><i
                                     className="fas fa-heart mr-1"></i> Move to wish list </a>

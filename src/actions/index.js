@@ -7,7 +7,9 @@ import {
     LOAD_MORE_FETCH_SUCCESS,
     ADD_TO_BASKET,
     REMOVE_FROM_BASKET,
-    CLEAN_BASKET
+    CLEAN_BASKET,
+    INC,
+    DEC
 } from './types';
 import {fetchApi, loadMoreApi} from '../api';
 import {getRenderedPhonesLength} from '../selectors';
@@ -53,10 +55,10 @@ export const loadMorePhones = () => async (dispatch, getState) => {
     }
 };
 
-export const addToBasket = id => dispatch => {
+export const addToBasket = item => dispatch => {
     dispatch({
         type: ADD_TO_BASKET,
-        payload: id
+        payload: item
     });
 };
 
@@ -64,6 +66,20 @@ export const removeFromBasket = id => dispatch => {
     dispatch({
         type: REMOVE_FROM_BASKET,
         payload: id
+    })
+};
+
+export const increment = item => dispatch => {
+    dispatch({
+        type: INC,
+        payload: item
+    })
+};
+
+export const decrement = item => dispatch => {
+    dispatch({
+        type: DEC,
+        payload: item
     })
 };
 

@@ -9,3 +9,6 @@ export const LOAD_MORE_FETCH_FAILURE = 'LOAD_MORE_FETCH_FAILURE'
 export const ADD_TO_BASKET = 'ADD_TO_BASKET';
 export const REMOVE_FROM_BASKET = 'REMOVE_FROM_BASKET';
 export const CLEAN_BASKET = 'CLEAN_BASKET';
+
+export const INC = 'INC';
+export const DEC = 'DEC';
