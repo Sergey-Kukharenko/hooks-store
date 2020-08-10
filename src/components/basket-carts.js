@@ -12,7 +12,7 @@ const BasketCarts = () => {
 
     const dispatch = useDispatch()
 
-    const removeCart = id => dispatch(removeFromBasket(id))
+    const removeCart = item => dispatch(removeFromBasket(item))
 
     const inc = item => dispatch(increment(item))
 

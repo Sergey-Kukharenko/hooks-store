@@ -56,7 +56,7 @@ const BasketCart = ({cart, removeCart, inc, dec}) => {
                             <div>
                                 <a
                                     className="card-link-secondary small text-uppercase mr-3"
-                                    onClick={() => removeCart(cart.id)}
+                                    onClick={() => removeCart(cart)}
                                 >
                                     <i className="fas fa-trash-alt mr-1"></i>
                                     Remove item

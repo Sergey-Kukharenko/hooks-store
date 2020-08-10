@@ -62,10 +62,10 @@ export const addToBasket = item => dispatch => {
     });
 };
 
-export const removeFromBasket = id => dispatch => {
+export const removeFromBasket = item => dispatch => {
     dispatch({
         type: REMOVE_FROM_BASKET,
-        payload: id
+        payload: item
     })
 };
 

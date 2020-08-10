@@ -16,7 +16,7 @@ export default (state = initialState, {type, payload}) => {
             return updateItem(state, payload, -1)
 
         case REMOVE_FROM_BASKET:
-            return removeUniqueArray(payload, state);
+            return removeUniqueArray(state, payload);
 
         case CLEAN_BASKET:
             return initialState;

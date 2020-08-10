@@ -14,7 +14,7 @@ const Basket = () => {
                         <BasketCarts/>
                     </div>
                     <div className="card mb-4">
-                        <BasketDelivery/>
+                        {/*<BasketDelivery/>*/}
                     </div>
                     <div className="card mb-4">
                         {/*<BasketAccept/>*/}
@@ -22,7 +22,7 @@ const Basket = () => {
                 </div>
                 <div className="col-lg-4">
                     <div className="card mb-4">
-                        {/*<BasketTotal/>*/}
+                        <BasketTotal/>
                     </div>
                     <div className="card mb-4">
                         {/*<BasketCode/>*/}

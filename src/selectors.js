@@ -28,12 +28,13 @@ export const arrayOfValues = state => arrIds => arrIds.map(id => getById(state, 
 //         arrayOfValues(state))
 //     (state.basket);
 
+const multiplyInItem = (a, b) => arr => arr.map(item => item.price * item.quantity)
+
 export const getTotalBasketPrice = state =>
     compose(
         sumValuesArray,
-        arrayObjectsByKeys('price'),
-        arrayOfValues(state))
-    (state.basket);
+        multiplyInItem('price', 'quantity')
+    )(state.basket)
 
 export const getCategories = state => R.values(state.categories) // получаем массив объектов categories
 
