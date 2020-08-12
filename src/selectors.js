@@ -1,11 +1,12 @@
 import {
+    addFieldToObj,
     arrayIdenticalValues,
     arrayLength,
     arrayObjectsByKeys,
     compose,
+    multiplyInItem,
     sumValuesArray,
-    unique,
-    addFieldToObj
+    unique
 } from "./utils";
 import * as R from "ramda";
 
@@ -17,7 +18,10 @@ export const getActiveCategoryId = ownProps => ownProps.match.params.id;
 
 export const getRenderedPhonesLength = state => state.phonesPage.ids.length;
 
-export const getTotalBasketCount = state => state.basket.length;
+export const getTotalBasketCount = state => compose(
+    sumValuesArray,
+    arrayObjectsByKeys('quantity'),
+)(state.basket)
 
 export const arrayOfValues = state => arrIds => arrIds.map(id => getById(state, id, 'carts'));
 
@@ -28,7 +32,6 @@ export const arrayOfValues = state => arrIds => arrIds.map(id => getById(state, 
 //         arrayOfValues(state))
 //     (state.basket);
 
-const multiplyInItem = (a, b) => arr => arr.map(item => item.price * item.quantity)
 
 export const getTotalBasketPrice = state =>
     compose(

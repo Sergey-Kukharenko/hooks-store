@@ -1,5 +1,5 @@
-import {removeUniqueArray, updateItem} from '../utils';
-import {CLEAN_BASKET, DEC, INC, REMOVE_FROM_BASKET} from '../actions/types';
+import {removeUniqueArray, replaceItem, updateItem} from '../utils';
+import {CLEAN_BASKET, DEC, INC, REMOVE_FROM_BASKET, CHANGE_QUANTITY} from '../actions/types';
 
 const initialState = [];
 
@@ -20,6 +20,9 @@ export default (state = initialState, {type, payload}) => {
 
         case CLEAN_BASKET:
             return initialState;
+
+        case CHANGE_QUANTITY:
+            return replaceItem(state, payload)
 
         default:
             return state;

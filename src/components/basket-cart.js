@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 
-const BasketCart = ({cart, removeCart, inc, dec}) => {
+const BasketCart = ({cart, removeCart, inc, dec, change}) => {
 
-    const [inputValue, setInputValue] = useState(0);
-
-    const handleOnChange = event => {
-        const {value} = event.target;
-        setInputValue(value);
+    const handleOnChange = (e, cart) => {
+        const value = e.target.value;
+        // e.target.value.replace(/[^1-9]/g, "")
+        cart.quantity = +value;
+        change(cart)
     };
 
     return (
@@ -38,7 +38,15 @@ const BasketCart = ({cart, removeCart, inc, dec}) => {
                                         className="minus"
                                         onClick={() => dec(cart)}
                                     ></button>
-                                    <input className="quantity" min="0" name="quantity" value={cart.quantity} onChange={handleOnChange} type="number"/>
+                                    <input
+                                        className="quantity"
+                                        min="1"
+                                        name="quantity"
+                                        value={cart.quantity}
+                                        onFocus={e => e.target.value = ''}
+                                        onChange={e => handleOnChange(e, cart)}
+                                        type="number"
+                                    />
                                     <button
                                         className="plus"
                                         onClick={() => inc(cart)}
@@ -70,7 +78,7 @@ const BasketCart = ({cart, removeCart, inc, dec}) => {
                     </div>
                 </div>
             </div>
-            {/*<hr className="mb-4"/>*/}
+            <hr className="card-separator mb-4"/>
         </div>
     );
 };

@@ -9,7 +9,8 @@ import {
     REMOVE_FROM_BASKET,
     CLEAN_BASKET,
     INC,
-    DEC
+    DEC,
+    CHANGE_QUANTITY
 } from './types';
 import {fetchApi, loadMoreApi} from '../api';
 import {getRenderedPhonesLength} from '../selectors';
@@ -72,6 +73,13 @@ export const removeFromBasket = item => dispatch => {
 export const increment = item => dispatch => {
     dispatch({
         type: INC,
+        payload: item
+    })
+};
+
+export const changeQuantity = item => dispatch => {
+    dispatch({
+        type: CHANGE_QUANTITY,
         payload: item
     })
 };

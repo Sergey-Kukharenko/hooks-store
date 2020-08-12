@@ -1,0 +1,7 @@
+.basket-cart .card-separator {
+    display: none;
+}
+
+.basket-cart:last-of-type .card-separator {
+    display: block;
+}

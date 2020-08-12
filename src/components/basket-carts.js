@@ -2,7 +2,7 @@ import React from 'react';
 import BasketCart from "./basket-cart";
 import {useDispatch, useSelector} from "react-redux";
 
-import {decrement, increment, removeFromBasket} from "../actions";
+import {decrement, increment, removeFromBasket, changeQuantity} from "../actions";
 
 const BasketCarts = () => {
 
@@ -18,13 +18,15 @@ const BasketCarts = () => {
 
     const dec = item => dispatch(decrement(item))
 
+    const change = item => dispatch(changeQuantity(item))
+
     return (
         <div className="card-body">
 
             <h5 className="mb-4">Cart (<span>{carts.length}</span> items)</h5>
 
             {
-                carts.map((cart, idx) => <BasketCart cart={cart} removeCart={removeCart} inc={inc} dec={dec} key={idx}/>)
+                carts.map((cart, idx) => <BasketCart cart={cart} removeCart={removeCart} inc={inc} dec={dec} change={change} key={idx}/>)
             }
 
             <p className="text-primary mb-0">

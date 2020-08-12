@@ -30,7 +30,10 @@ export const compose = (...functions) => args => functions.reduceRight((arg, fn)
 
 export const mergeIdToArr = (array, id) => [...array, id];
 
-export const arrayObjectsByKeys = key => array => array.map(item => item[key]);
+export const arrayObjectsByKeys = key => array => array.map(item => {
+    console.log(item[key])
+    return item[key]
+});
 
 export const sumValuesArray = arr => +arr.reduce((a, b) => Number(a) + Number(b), 0).toFixed(2);
 
@@ -73,3 +76,14 @@ export const updateItem = (array, obj, num) => {
     }
     return [...array, {...obj, quantity: 1}];
 }
+
+export const replaceFieldItem = (array, obj) => array.map(item => (item.id === obj.id) ? {...obj} : item)
+
+
+export const replaceItem = (array, obj) => {
+    if (findIdArray(array, obj)) {
+        return replaceFieldItem(array, obj)
+    }
+}
+
+export const multiplyInItem = (a, b) => arr => arr.map(item => item[a] * item[b])

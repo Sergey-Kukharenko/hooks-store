@@ -12,3 +12,5 @@ export const CLEAN_BASKET = 'CLEAN_BASKET';
 
 export const INC = 'INC';
 export const DEC = 'DEC';
+
+export const CHANGE_QUANTITY = 'CHANGE_QUANTITY';
