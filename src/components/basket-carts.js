@@ -37,7 +37,6 @@ const BasketCarts = () => {
         </div>
     );
 
-    return <div>Basket</div>
 };
 
 export default BasketCarts;

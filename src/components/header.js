@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import {useSelector} from "react-redux";
 
 import {getTotalBasketCount} from '../selectors'
-import {MDBCardImage} from "mdbreact";
 import {Link} from "react-router-dom";
 
 const Header = () => {

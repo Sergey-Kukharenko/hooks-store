@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 const BasketCart = ({cart, removeCart, inc, dec, change}) => {
 
@@ -17,7 +17,7 @@ const BasketCart = ({cart, removeCart, inc, dec, change}) => {
                         <img className="img-fluid w-100" src={cart.img} alt="Sample"/>
                         <div>
                             <div className="mask waves-effect waves-light">
-                                <img className="img-fluid w-100" src={cart.img}/>
+                                <img className="img-fluid w-100" src={cart.img} alt={cart.title}/>
                                 <div className="mask rgba-black-slight waves-effect waves-light"></div>
                             </div>
                         </div>
@@ -62,13 +62,13 @@ const BasketCart = ({cart, removeCart, inc, dec, change}) => {
                         </div>
                         <div className="d-flex justify-content-between align-items-center">
                             <div>
-                                <a
+                                <div
                                     className="card-link-secondary small text-uppercase mr-3"
                                     onClick={() => removeCart(cart)}
                                 >
                                     <i className="fas fa-trash-alt mr-1"></i>
                                     Remove item
-                                </a>
+                                </div>
                                 <a href="#!" type="button"
                                    className="card-link-secondary small text-uppercase"><i
                                     className="fas fa-heart mr-1"></i> Move to wish list </a>
