@@ -43,7 +43,7 @@ const BasketCart = ({cart, removeCart, inc, dec, change}) => {
                                         min="1"
                                         name="quantity"
                                         value={cart.quantity}
-                                        onFocus={e => e.target.value = ''}
+
                                         onChange={e => handleOnChange(e, cart)}
                                         type="number"
                                     />

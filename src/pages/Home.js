@@ -1,6 +1,6 @@
 import React from 'react';
 import Carts from "../components/carts";
-import Basket from "../components/basket";
+import Basket from "./Basket";
 
 const Home = () => {
     return (

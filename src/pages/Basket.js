@@ -1,9 +1,10 @@
 import React from 'react';
-import BasketCarts from "./basket-carts";
-import BasketDelivery from "./basket-delivery";
-import BasketAccept from "./basket-accept";
-import BasketTotal from "./basket-total";
-import BasketCode from "./basket-code";
+import BasketCarts from "../components/basket-carts";
+import BasketDelivery from "../components/basket-delivery";
+import BasketAccept from "../components/basket-accept";
+import BasketTotal from "../components/basket-total";
+import BasketCode from "../components/basket-code";
+
 
 const Basket = () => {
     return (
@@ -14,10 +15,10 @@ const Basket = () => {
                         <BasketCarts/>
                     </div>
                     <div className="card mb-4">
-                        {/*<BasketDelivery/>*/}
+                        <BasketDelivery/>
                     </div>
                     <div className="card mb-4">
-                        {/*<BasketAccept/>*/}
+                        <BasketAccept/>
                     </div>
                 </div>
                 <div className="col-lg-4">
@@ -25,7 +26,7 @@ const Basket = () => {
                         <BasketTotal/>
                     </div>
                     <div className="card mb-4">
-                        {/*<BasketCode/>*/}
+                        <BasketCode/>
                     </div>
                 </div>
 

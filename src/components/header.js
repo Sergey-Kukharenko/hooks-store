@@ -3,6 +3,8 @@ import React, {useState} from 'react';
 import {useSelector} from "react-redux";
 
 import {getTotalBasketCount} from '../selectors'
+import {MDBCardImage} from "mdbreact";
+import {Link} from "react-router-dom";
 
 const Header = () => {
 
@@ -27,10 +29,14 @@ const Header = () => {
                 <div className={state ? 'collapse navbar-collapse show' : 'collapse navbar-collapse'}>
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
-                            <div className="nav-link navbar-link-2 waves-effect">
+
+                            <Link
+                                className="nav-link navbar-link-2 waves-effect"
+                                to={'/basket'}
+                            >
                                 <span className="badge badge-pill red">{totalBasketCount}</span>
                                 <i className="fas fa-shopping-cart pl-0"></i>
-                            </div>
+                            </Link>
                         </li>
                         <li className="nav-item">
                             <div className="nav-link waves-effect">
