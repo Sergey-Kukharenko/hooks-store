@@ -10,12 +10,15 @@ import {
     CLEAN_BASKET,
     INC,
     DEC,
-    CHANGE_QUANTITY
+    CHANGE_QUANTITY,
+    FETCH_BY_ID_START,
+    FETCH_BY_ID_SUCCESS,
+    FETCH_BY_ID_FAILURE
 } from './types';
-import {fetchApi, loadMoreApi} from '../api';
+import {fetchApi, loadMoreApi, fetchByIdApi} from '../api';
 import {getRenderedPhonesLength} from '../selectors';
 
-export const fetchPhones = () => async dispatch => {
+export const fetch = () => async dispatch => {
     dispatch({
         type: FETCH_START
     });
@@ -95,4 +98,22 @@ export const cleanBasket = () => dispatch => {
     dispatch({
         type: CLEAN_BASKET
     })
+};
+
+export const fetchById = (id) => async dispatch => {
+    dispatch({type: FETCH_BY_ID_START});
+
+    try {
+        const payload = await fetchByIdApi(id);
+        dispatch({
+            type: FETCH_BY_ID_SUCCESS,
+            payload: payload
+        })
+    } catch (err) {
+        dispatch({
+            type: FETCH_BY_ID_FAILURE,
+            payload: err,
+            error: true
+        })
+    }
 };

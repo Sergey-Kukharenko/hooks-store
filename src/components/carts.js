@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 
-import {fetchPhones, increment} from '../actions'
+import {fetch, increment} from '../actions'
 import Cart from "./cart";
 
 const Carts = () => {
@@ -13,7 +13,7 @@ const Carts = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(fetchPhones())
+        dispatch(fetch())
     }, [dispatch])
 
     const addCart = item => dispatch(increment(item))

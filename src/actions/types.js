@@ -10,6 +10,10 @@ export const ADD_TO_BASKET = 'ADD_TO_BASKET';
 export const REMOVE_FROM_BASKET = 'REMOVE_FROM_BASKET';
 export const CLEAN_BASKET = 'CLEAN_BASKET';
 
+export const FETCH_BY_ID_START = 'FETCH_BY_ID_START';
+export const FETCH_BY_ID_SUCCESS = 'FETCH_BY_ID_SUCCESS';
+export const FETCH_BY_ID_FAILURE = 'FETCH_BY_ID_FAILURE';
+
 export const INC = 'INC';
 export const DEC = 'DEC';
 

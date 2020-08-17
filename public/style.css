@@ -5,3 +5,7 @@
 .basket-cart:last-of-type .card-separator {
     display: block;
 }
+
+.detail{
+    margin-top: 60px;
+}
