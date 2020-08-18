@@ -7,11 +7,9 @@ export default (state = initialState, {type, payload}) => {
     switch (type) {
 
         case INC:
-            console.log(payload)
             return updateItem(state, payload, 1)
 
         case DEC:
-            console.log(payload)
             if ((payload.quantity <= 1)) {
                 return removeUniqueArray(state, payload);
             }

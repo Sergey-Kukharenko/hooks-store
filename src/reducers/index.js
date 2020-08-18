@@ -7,7 +7,7 @@ import cart from './cart';
 
 export default history => combineReducers({
   carts,
-  basket,
   cart,
+  basket,
   router: connectRouter(history)
 });

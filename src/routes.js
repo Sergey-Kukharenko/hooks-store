@@ -7,7 +7,7 @@ import Basket from "./pages/Basket";
 export default (
     <Switch>
         <Route path='/' component={Home} exact/>
-        <Route path='/basket' component={Basket} exact/>
         <Route path='/carts/:id' component={Detail} exact/>
+        <Route path='/basket' component={Basket} exact/>
     </Switch>
 )

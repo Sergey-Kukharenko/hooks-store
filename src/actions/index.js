@@ -1,21 +1,21 @@
 import {
+    ADD_TO_BASKET,
+    CHANGE_QUANTITY,
+    CLEAN_BASKET,
+    DEC,
+    FETCH_BY_ID_FAILURE,
+    FETCH_BY_ID_START,
+    FETCH_BY_ID_SUCCESS,
     FETCH_FAILURE,
     FETCH_START,
     FETCH_SUCCESS,
+    INC,
     LOAD_MORE_FETCH_FAILURE,
     LOAD_MORE_FETCH_START,
     LOAD_MORE_FETCH_SUCCESS,
-    ADD_TO_BASKET,
-    REMOVE_FROM_BASKET,
-    CLEAN_BASKET,
-    INC,
-    DEC,
-    CHANGE_QUANTITY,
-    FETCH_BY_ID_START,
-    FETCH_BY_ID_SUCCESS,
-    FETCH_BY_ID_FAILURE
+    REMOVE_FROM_BASKET
 } from './types';
-import {fetchApi, loadMoreApi, fetchByIdApi} from '../api';
+import {fetchApi, fetchByIdApi, loadMoreApi} from '../api';
 import {getRenderedPhonesLength} from '../selectors';
 
 export const fetch = () => async dispatch => {

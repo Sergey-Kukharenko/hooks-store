@@ -18,10 +18,10 @@ const Header = () => {
     return (
         <header>
             <nav className="navbar navbar-expand-md navbar-light fixed-top scrolling-navbar">
-                <div className="navbar-brand">
+                <Link to="/" className="navbar-brand">
                     <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="30"
                          alt="mdb logo"/>
-                </div>
+                </Link>
                 <button className="navbar-toggler" type="button" onClick={toggle}>
                     <span className="navbar-toggler-icon"></span>
                 </button>
