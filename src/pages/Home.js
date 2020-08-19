@@ -1,15 +1,9 @@
 import React from 'react';
 import Carts from "../components/carts";
-import {arrData} from "../utils/loops/createData";
 
 const Home = () => {
-
-
-
-    console.log(arrData(1))
-
     return (
-        <div>
+        <div className="align-items-baseline mt-100">
             <h1>Home</h1>
             <Carts/>
         </div>

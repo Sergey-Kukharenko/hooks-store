@@ -1,0 +1,27 @@
+@mixin paddingAndMargin() {
+  $length: 100;
+  $sides: (left, top, right, bottom); // Leave this variable alone
+
+  @for $space from 1 through $length {
+    @each $side in $sides {
+      .m#{str-slice($side, 0, 1)}-#{$space} {
+        margin-#{$side}: #{$space}px;
+      }
+      .p#{str-slice($side, 0, 1)}-#{$space} {
+        padding-#{$side}: #{$space}px;
+      }
+    }
+  }
+
+  @for $space from 1 through $length {
+    .m-#{$space} {
+      margin: #{$space}px;
+    }
+    .p-#{$space} {
+      padding: #{$space}px;
+    }
+  }
+
+}
+
+@include paddingAndMargin()
