@@ -33,7 +33,7 @@ const BasketCart = ({cart, removeCart, inc, dec, change}) => {
                                 <p className="mb-3 text-muted text-uppercase small">Size: M</p>
                             </div>
                             <div>
-                                <div className="def-number-input number-input safari_only mb-0 w-100">
+                                <div className="def-number-input number-input safari_only mb-0 w-100 d-flex alig">
                                     <button
                                         className="minus"
                                         onClick={() => dec(cart)}

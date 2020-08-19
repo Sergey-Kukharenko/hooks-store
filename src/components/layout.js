@@ -3,7 +3,6 @@ import React, {Fragment} from 'react'
 import Header from "./header";
 
 import routes from "../routes";
-import Basket from "../pages/Basket";
 
 const Layout = () => (
     <Fragment>

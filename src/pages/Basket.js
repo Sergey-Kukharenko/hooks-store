@@ -5,8 +5,8 @@ import BasketAccept from "../components/basket-accept";
 import BasketTotal from "../components/basket-total";
 import BasketCode from "../components/basket-code";
 
-
 const Basket = () => {
+
     return (
         <section className="mt-100">
             <div className="row">
@@ -31,7 +31,6 @@ const Basket = () => {
                 </div>
 
             </div>
-
         </section>
     );
 };

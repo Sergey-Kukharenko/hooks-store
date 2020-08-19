@@ -28,14 +28,18 @@ const Header = () => {
                 <div className={state ? 'collapse navbar-collapse show' : 'collapse navbar-collapse'}>
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item">
+                            {
+                                !(totalBasketCount === 0)
+                                &&
+                                <Link
+                                    className="nav-link navbar-link-2 waves-effect"
+                                    to={'/basket'}
+                                >
+                                    <span className="badge badge-pill red">{totalBasketCount}</span>
+                                    <i className="fas fa-shopping-cart pl-0"></i>
+                                </Link>
+                            }
 
-                            <Link
-                                className="nav-link navbar-link-2 waves-effect"
-                                to={'/basket'}
-                            >
-                                <span className="badge badge-pill red">{totalBasketCount}</span>
-                                <i className="fas fa-shopping-cart pl-0"></i>
-                            </Link>
                         </li>
                         <li className="nav-item">
                             <div className="nav-link waves-effect">

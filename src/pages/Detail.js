@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {useParams} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
-import {changeQuantity, decrement, fetchById, increment} from "../actions";
+import {fetchById, increment} from "../actions";
 
 const Detail = () => {
 
@@ -17,7 +17,7 @@ const Detail = () => {
 
     useEffect(() => {
         dispatch(fetchById(+id))
-    }, [dispatch])
+    }, [dispatch, id])
 
     const addCart = item => dispatch(increment(item))
 

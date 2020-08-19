@@ -1,8 +1,10 @@
 import React from 'react';
 import BasketCart from "./basket-cart";
+import {Redirect} from "react-router";
 import {useDispatch, useSelector} from "react-redux";
 
 import {decrement, increment, removeFromBasket, changeQuantity} from "../actions";
+import {isArrayEmpty} from "../utils";
 
 const BasketCarts = () => {
 
@@ -20,13 +22,17 @@ const BasketCarts = () => {
 
     const change = item => dispatch(changeQuantity(item))
 
+
+
     return (
         <div className="card-body">
 
             <h5 className="mb-4">Cart (<span>{carts.length}</span> items)</h5>
 
             {
-                carts.map((cart, idx) => <BasketCart cart={cart} removeCart={removeCart} inc={inc} dec={dec} change={change} key={idx}/>)
+                isArrayEmpty(carts)
+                    ? <Redirect to='/'/>
+                    : carts.map((cart, idx) => <BasketCart cart={cart} removeCart={removeCart} inc={inc} dec={dec} change={change} key={idx}/>)
             }
 
             <p className="text-primary mb-0">

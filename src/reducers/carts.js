@@ -1,4 +1,4 @@
-import {FETCH_BY_ID_SUCCESS, FETCH_SUCCESS, LOAD_MORE_FETCH_SUCCESS} from '../actions/types'
+import {FETCH_SUCCESS, LOAD_MORE_FETCH_SUCCESS} from '../actions/types'
 import {merge} from '../utils'
 
 const initialState = {};
