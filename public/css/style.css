@@ -9,3 +9,7 @@
 .skin-light .number-input.number-input button{
     height: auto;
 }
+
+.skin-light .md-form.md-outline label.active {
+    border-radius: 4px;
+}

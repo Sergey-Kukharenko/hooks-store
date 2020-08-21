@@ -73,7 +73,7 @@ const BasketCart = ({cart, removeCart, inc, dec, change}) => {
                                    className="card-link-secondary small text-uppercase"><i
                                     className="fas fa-heart mr-1"></i> Move to wish list </a>
                             </div>
-                            <p className="mb-0"><span><strong>{cart.price}</strong></span></p>
+                            <p className="mb-0"><span><strong>$ {cart.price}</strong></span></p>
                         </div>
                     </div>
                 </div>

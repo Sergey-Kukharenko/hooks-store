@@ -47,9 +47,12 @@ const Header = () => {
                             </div>
                         </li>
                         <li className="nav-item pl-2 mb-2 mb-md-0">
-                            <div
-                               className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light">Sign
-                                up</div>
+                            <Link
+                                className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light"
+                                to={'/registration'}
+                            >
+                                Sign up
+                            </Link>
                         </li>
                     </ul>
                 </div>
