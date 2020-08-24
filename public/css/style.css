@@ -13,3 +13,8 @@
 .skin-light .md-form.md-outline label.active {
     border-radius: 4px;
 }
+
+.hint {
+    position: absolute;
+    margin: -5px 0 0 1px;
+}
