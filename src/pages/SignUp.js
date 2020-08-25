@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const Registration = () => {
+const SignUp = () => {
 
     // const [userName, setUserName] = useState('');
     const [email, setEmail] = useState('');
@@ -113,7 +113,7 @@ const Registration = () => {
                                         htmlFor="confirmPassword"
                                         className={(userConfirmPasswordFocus || confirmPassword.length > 0) ? "active" : null}
                                     >
-                                        Your password
+                                        Confirm Your password
                                     </label>
                                 </div>
                                 <div className="text-center mb-2">
@@ -137,4 +137,4 @@ const Registration = () => {
 // Пример
 // https://codesandbox.io/s/my2p65r4z9?file=/src/firebase/index.js
 
-export default Registration;
+export default SignUp;

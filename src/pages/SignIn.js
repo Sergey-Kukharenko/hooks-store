@@ -1,55 +1,111 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const SignIn = () => {
+
+    // const [userName, setUserName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    // const [userNameFocus, setUserNameFocus] = useState(false);
+    const [userEmailFocus, setUserEmailFocus] = useState(false);
+    const [userPasswordFocus, setUserPasswordFocus] = useState(false);
+
+    const isValidEmail = email =>
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+            email
+        );
+
+    const isEnabled = email.length > 0 && isValidEmail(email) > 0 && password.length > 1;
+
+    const clear = () => {
+        // setUserName('');
+        setEmail('');
+        setPassword('');
+    };
+
+    const handleSubmit = event => {
+        event.preventDefault();
+        const user = {
+            email,
+            password
+        }
+
+        console.log(user)
+        clear();
+    };
+
     return (
         <div className="container">
             <div className="row d-flex align-items-center justify-content-center min-vh-100">
-                <div className="col-md-8 col-lg-6 col-xl-5">
+                <div className="col-md-5">
                     <div className="card">
                         <div className="card-body">
-                            <h5 className="text-center mt-1 mb-4">Sign In</h5>
-                            <form action="#!">
-                                <div className="md-form md-outline">
-                                    <input type="email" id="1defaultForm-email1" className="form-control"/>
-                                    <label data-error="wrong" data-success="right" htmlFor="defaultForm-email1">
-                                        Your email
+                            <form onSubmit={handleSubmit}>
+                                {/*<div className="md-form md-outline mt-0">*/}
+                                {/*    <input*/}
+                                {/*        type="text"*/}
+                                {/*        id="firstName"*/}
+                                {/*        className="form-control"*/}
+                                {/*        value={userName}*/}
+                                {/*        onChange={event => setUserName(event.target.value)}*/}
+                                {/*        onFocus={() => setUserNameFocus(true)}*/}
+                                {/*        onBlur={() => setUserNameFocus(false)}*/}
+                                {/*    />*/}
+                                {/*    <label*/}
+                                {/*        htmlFor="firstName"*/}
+                                {/*        className={(userNameFocus || userName.length > 0) ? "active" : null}*/}
+                                {/*    >*/}
+                                {/*        First name*/}
+                                {/*    </label>*/}
+                                {/*</div>*/}
+                                <div className="md-form md-outline mt-0">
+                                    <input
+                                        type="text"
+                                        id="email"
+                                        className="form-control"
+                                        value={email}
+                                        onChange={event => setEmail(event.target.value)}
+                                        onFocus={() => setUserEmailFocus(true)}
+                                        onBlur={() => setUserEmailFocus(false)}
+                                    />
+                                    <label
+                                        htmlFor="email"
+                                        className={(userEmailFocus || email.length > 0) ? "active" : null}
+                                    >
+                                        Email
                                     </label>
                                 </div>
-                                <div className="md-form md-outline">
-                                    <input type="password" id="1defaultForm-pass1" className="form-control"/>
-                                    <label data-error="wrong" data-success="right" htmlFor="defaultForm-pass1">
+                                <div className="md-form md-outline mt-0">
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        className="form-control"
+                                        value={password}
+                                        onChange={event => setPassword(event.target.value)}
+                                        onFocus={() => setUserPasswordFocus(true)}
+                                        onBlur={() => setUserPasswordFocus(false)}
+                                    />
+                                    <label
+                                        htmlFor="password"
+                                        className={(userPasswordFocus || password.length > 0) ? "active" : null}
+                                    >
                                         Your password
                                     </label>
+                                    {
+                                        ((userPasswordFocus)&&(password.length <= 1)) &&
+                                        <small className="form-text text-muted hint">{password.length} of 2</small>
+                                    }
+                                </div>
+                                <div className="text-center mb-2">
+                                    <button
+                                        type="submit"
+                                        className="btn btn-primary mb-4 waves-effect waves-light"
+                                        disabled={!isEnabled}
+                                    >
+                                        Sign Up
+                                    </button>
                                 </div>
                             </form>
-                            <div className="d-flex justify-content-between align-items-center mb-2">
-                                <div className="form-check pl-0 mb-3">
-                                    <input type="checkbox" className="form-check-input filled-in" id="1new"/>
-                                    <label className="form-check-label small text-uppercase card-link-secondary"
-                                           htmlFor="new">
-                                        Remember me
-                                    </label>
-                                </div>
-                                <p><a href="">Forgot password?</a></p>
-                            </div>
-                            <div className="text-center pb-2">
-                                <button type="submit" className="btn btn-primary mb-4 waves-effect waves-light">Sign in
-                                </button>
-                                <p>Not a member? <a href="">Register</a></p>
-                                <p>or sign in with:</p>
-                                <a type="button" className="btn-floating btn-fb btn-sm mr-1 waves-effect waves-light">
-                                    <i className="fab fa-facebook-f"></i>
-                                </a>
-                                <a type="button" className="btn-floating btn-tw btn-sm mr-1 waves-effect waves-light">
-                                    <i className="fab fa-twitter"></i>
-                                </a>
-                                <a type="button" className="btn-floating btn-li btn-sm mr-1 waves-effect waves-light">
-                                    <i className="fab fa-linkedin-in"></i>
-                                </a>
-                                <a type="button" className="btn-floating btn-git btn-sm waves-effect waves-light">
-                                    <i className="fab fa-github"></i>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
