@@ -12,7 +12,7 @@ export default (
         <Route path='/' component={Home} exact/>
         <Route path='/carts/:id' component={Detail} exact/>
         <Route path='/basket' component={Basket} exact/>
-        <Route path='/signin' component={SignIn} />
-        <Route path='/signup' component={SignUp} />
+        <Route path='/sign-in' component={SignIn} />
+        <Route path='/sign-up' component={SignUp} />
     </Switch>
 )

@@ -49,7 +49,7 @@ const Header = () => {
                         <li className="nav-item pl-2 mb-2 mb-md-0">
                             <Link
                                 className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light"
-                                to={'/registration'}
+                                to={'/sign-up'}
                             >
                                 Sign up
                             </Link>
