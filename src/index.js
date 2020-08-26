@@ -7,16 +7,17 @@ import {createBrowserHistory} from 'history';
 import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
-import createRootReducer from './reducers';
+import rootReducer from './reducers';
 import App from './App';
 import './index.scss'
 
 const history = createBrowserHistory()
 const middlewares = [thunk, routerMiddleware(history)]
 const store = createStore(
-    createRootReducer(history),
-    composeWithDevTools(applyMiddleware(...middlewares),
+    rootReducer(history),
 
+    composeWithDevTools(
+        applyMiddleware(...middlewares),
     )
 )
 ReactDOM.render(
