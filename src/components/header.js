@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 
 import {getTotalBasketCount} from '../selectors'
 import {Link} from "react-router-dom";
+import {signOut} from "../actions/auth";
 
 const Header = () => {
 
@@ -12,6 +13,8 @@ const Header = () => {
     }))
 
     const [state, setState] = useState(false);
+
+    const dispatch = useDispatch();
 
     const toggle = () => setState(!state);
 
@@ -53,6 +56,22 @@ const Header = () => {
                             >
                                 Sign up
                             </Link>
+                        </li>
+                        <li className="nav-item pl-2 mb-2 mb-md-0">
+                            <Link
+                                className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light"
+                                to={'/sign-in'}
+                            >
+                                Sign in
+                            </Link>
+                        </li>
+                        <li className="nav-item pl-2 mb-2 mb-md-0">
+                            <a
+                                className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light"
+                                onClick={() => {dispatch(signOut())}}
+                            >
+                                Sign Out
+                            </a>
                         </li>
                     </ul>
                 </div>

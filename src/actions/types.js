@@ -20,3 +20,21 @@ export const DEC = 'DEC';
 export const CHANGE_QUANTITY = 'CHANGE_QUANTITY';
 
 // export const user
+export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
+export const SIGNUP_ERROR = "SIGNUP_ERROR";
+
+// SIGN IN
+export const SIGNIN_SUCCESS = "SIGNIN_SUCCESS";
+export const SIGNIN_ERROR = "SIGNIN_ERROR";
+
+// AUTO SIGN IN
+export const AUTO_SIGNIN_SUCCESS = "AUTO_SIGNIN_SUCCESS";
+export const AUTO_SIGNIN_ERROR = "AUTO_SIGNIN_ERROR";
+
+// SIGN OUT
+export const SIGNOUT_SUCCESS = "SIGNOUT_SUCCESS";
+export const SIGNOUT_ERROR = "SIGNOUT_ERROR";
+
+// RESET
+export const RESET_SUCCESS = "RESET_SUCCESS";
+export const RESET_ERROR = "RESET_ERROR";

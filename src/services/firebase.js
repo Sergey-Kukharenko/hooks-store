@@ -1,4 +1,3 @@
-
 // Firebase App (the core Firebase SDK) is always required and
 // must be listed before other Firebase SDKs
 import * as firebase from "firebase/app";
@@ -8,7 +7,7 @@ import * as firebase from "firebase/app";
 import "firebase/auth";
 
 // Your app's Firebase configuration
-var config = {
+var firebaseConfig  = {
     apiKey: "AIzaSyChNHBcTDjIB9ZpkYjpF2Q4cjTwRpDnpyM",
     authDomain: "react-hooks-store.firebaseapp.com",
     databaseURL: "https://react-hooks-store.firebaseio.com",
@@ -17,7 +16,9 @@ var config = {
     messagingSenderId: "393511090478",
     appId: "1:393511090478:web:7fe1f11094d14b5a5de2bf"
 };
-firebase.initializeApp(config);
-firebase.firestore().settings({ timestampsInSnapshots: true });
 
-export default firebase
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Finally, export it to use it throughout your app
+export default firebase;

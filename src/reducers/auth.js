@@ -1,40 +1,58 @@
-const initState = {
-    authError: null
+import {
+    SIGNUP_SUCCESS,
+    SIGNUP_ERROR,
+    SIGNOUT_SUCCESS,
+    SIGNIN_SUCCESS,
+    SIGNIN_ERROR,
+    AUTO_SIGNIN_SUCCESS
+} from "../actions/types";
+
+const initialState = {
+    user: null
 }
 
-const authReducer = (state = initState, action) => {
-    switch(action.type){
-        case 'LOGIN_ERROR':
-            console.log('login error');
+const authReducer = (state = initialState, {type, payload}) => {
+    switch(type){
+
+        case SIGNUP_SUCCESS:
+            console.log(payload)
             return {
                 ...state,
-                authError: 'Login failed'
+                user: payload
             }
 
-        case 'LOGIN_SUCCESS':
+        case SIGNUP_ERROR:
+            console.log('SIGNUP_ERROR')
+            console.log(payload)
+            return {
+                ...state,
+                error: payload
+            }
+
+        case SIGNIN_SUCCESS:
             console.log('login success');
             return {
                 ...state,
-                authError: null
+                user: payload
             }
 
-        case 'SIGNOUT_SUCCESS':
+        case SIGNIN_ERROR:
+            console.log('login error');
+            return state
+
+        case AUTO_SIGNIN_SUCCESS:
+            console.log('AUTO_SIGNIN_SUCCESS');
+            return {
+                ...state,
+                user: payload
+            }
+
+        case SIGNOUT_SUCCESS:
             console.log('signout success');
-            return state;
-
-        case 'SIGNUP_SUCCESS':
-            console.log('signup success')
             return {
                 ...state,
-                authError: null
-            }
-
-        case 'SIGNUP_ERROR':
-            console.log('signup error')
-            return {
-                ...state,
-                authError: action.err.message
-            }
+                user: payload
+            };
 
         default:
             return state

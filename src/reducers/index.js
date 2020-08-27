@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 import {connectRouter} from 'connected-react-router';
-import { firestoreReducer } from 'redux-firestore';
+// import { firestoreReducer } from 'redux-firestore';
 import { firebaseReducer } from 'react-redux-firebase'
 
 import carts from './carts';
@@ -9,9 +9,9 @@ import cart from './cart';
 import auth from './auth';
 
 export default history => combineReducers({
-  auth,
-  firestore: firestoreReducer,
+  // firestore: firestoreReducer,
   firebase: firebaseReducer,
+  auth,
   carts,
   cart,
   basket,
