@@ -38,3 +38,7 @@ export const SIGNOUT_ERROR = "SIGNOUT_ERROR";
 // RESET
 export const RESET_SUCCESS = "RESET_SUCCESS";
 export const RESET_ERROR = "RESET_ERROR";
+
+export const LOADING = "LOADING";
+export const ERROR = "ERROR";
+export const CLEAR_ERROR = "CLEAR_ERROR";

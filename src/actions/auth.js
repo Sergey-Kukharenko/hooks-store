@@ -3,30 +3,34 @@ import firebase from "../services/firebase";
 import {
     AUTO_SIGNIN_ERROR,
     AUTO_SIGNIN_SUCCESS,
+    CLEAR_ERROR,
+    ERROR,
+    LOADING,
     RESET_ERROR,
     RESET_SUCCESS,
     SIGNIN_ERROR,
     SIGNIN_SUCCESS,
     SIGNOUT_ERROR,
     SIGNOUT_SUCCESS,
-    SIGNUP_ERROR,
     SIGNUP_SUCCESS
 } from "./types";
 
 export const signUp = (email, password) => async dispatch => {
+    dispatch({type: CLEAR_ERROR, payload: null});
+    dispatch({type: LOADING, payload: true});
     try {
         await firebase.auth().createUserWithEmailAndPassword(email, password)
         dispatch({
             type: SIGNUP_SUCCESS,
             payload: {email, password}
         });
-    } catch (error) {
         dispatch({
-            type: SIGNUP_ERROR,
-            payload:
-                "Something went wrong, we couldn't create your account. Please try again."
+            type: LOADING,
+            payload: false
         });
-        throw error
+    } catch (error) {
+        dispatch({type: LOADING, payload: false});
+        dispatch({type: ERROR, payload: error.message});
     }
 };
 
@@ -84,7 +88,7 @@ export const resetPassword = email => async dispatch => {
     }
 };
 
-export const autoSignIn = (payload) => async dispatch => {
+export const autoSignIn = payload => async dispatch => {
     try {
         dispatch({
             type: AUTO_SIGNIN_SUCCESS,

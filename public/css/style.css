@@ -18,3 +18,30 @@
     position: absolute;
     margin: -5px 0 0 1px;
 }
+
+.message {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    left: 15px;
+    bottom: 15px;
+    right: 15px;
+    z-index: 1114;
+    transition: .2s ease-out;
+}
+
+.message > .alert{
+    color: #fff;
+    background: #C00;
+    margin: 0;
+}
+
+.message {
+    opacity: 0;
+    transform: translateY(120%);
+}
+
+.message.show {
+    opacity: 1;
+    transform: translateY(0%);
+}

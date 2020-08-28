@@ -7,10 +7,12 @@ import carts from './carts';
 import basket from './basket';
 import cart from './cart';
 import auth from './auth';
+import shared from './shared';
 
 export default history => combineReducers({
   // firestore: firestoreReducer,
   firebase: firebaseReducer,
+  shared,
   auth,
   carts,
   cart,

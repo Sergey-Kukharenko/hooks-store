@@ -15,6 +15,7 @@ const authReducer = (state = initialState, {type, payload}) => {
     switch(type){
 
         case SIGNUP_SUCCESS:
+            console.log('SIGNUP_SUCCESS')
             console.log(payload)
             return {
                 ...state,

@@ -4,6 +4,7 @@ import routes from "./routes";
 import firebase from "./services/firebase";
 import {useDispatch} from "react-redux";
 import {autoSignIn} from "./actions/auth";
+import Alert from "./components/alert";
 
 export default function App() {
 
@@ -24,6 +25,7 @@ export default function App() {
             <div className="col-lg-12">
                 {routes}
             </div>
+            <Alert/>
         </Fragment>
     );
 }

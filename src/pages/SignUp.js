@@ -34,7 +34,7 @@ const SignUp = () => {
 
 
     const {user} = useSelector(state => ({
-        user: state.auth.user
+        user: state.auth.user,
     }))
 
     const dispatch = useDispatch();
