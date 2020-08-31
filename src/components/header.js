@@ -8,9 +8,11 @@ import {signOut} from "../actions/auth";
 
 const Header = () => {
 
-    const {totalBasketCount} = useSelector(state => ({
+    const {totalBasketCount, user} = useSelector(state => ({
         totalBasketCount: getTotalBasketCount(state),
+        user: state.auth.user
     }))
+
 
     const [state, setState] = useState(false);
 
@@ -50,28 +52,25 @@ const Header = () => {
                             </div>
                         </li>
                         <li className="nav-item pl-2 mb-2 mb-md-0">
-                            <Link
-                                className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light"
-                                to={'/sign-up'}
-                            >
-                                Sign up
-                            </Link>
-                        </li>
-                        <li className="nav-item pl-2 mb-2 mb-md-0">
-                            <Link
-                                className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light"
-                                to={'/sign-in'}
-                            >
-                                Sign in
-                            </Link>
-                        </li>
-                        <li className="nav-item pl-2 mb-2 mb-md-0">
-                            <a
-                                className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light"
-                                onClick={() => {dispatch(signOut())}}
-                            >
-                                Sign Out
-                            </a>
+                            {
+                                user
+                                    ? <a
+                                        className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light"
+                                        onClick={() => {
+                                            dispatch(signOut())
+                                        }}
+                                    >
+                                        Sign Out
+                                    </a>
+
+                                    : <Link
+                                        className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light"
+                                        to={'/sign-in'}
+                                    >
+                                        Sign in
+                                    </Link>
+                            }
+
                         </li>
                     </ul>
                 </div>

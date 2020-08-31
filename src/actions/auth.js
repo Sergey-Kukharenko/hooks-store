@@ -24,10 +24,7 @@ export const signUp = (email, password) => async dispatch => {
             type: SIGNUP_SUCCESS,
             payload: {email, password}
         });
-        dispatch({
-            type: LOADING,
-            payload: false
-        });
+        dispatch({type: LOADING, payload: false});
     } catch (error) {
         dispatch({type: LOADING, payload: false});
         dispatch({type: ERROR, payload: error.message});
@@ -36,15 +33,18 @@ export const signUp = (email, password) => async dispatch => {
 
 // Signing in with Firebase
 export const signIn = (email, password) => async dispatch => {
+    dispatch({type: CLEAR_ERROR, payload: null});
+    dispatch({type: LOADING, payload: true});
     try {
         await firebase.auth().signInWithEmailAndPassword(email, password)
         dispatch({
             type: SIGNIN_SUCCESS,
             payload: {email, password}
         })
+        dispatch({type: LOADING, payload: false});
     } catch (error) {
-        dispatch({type: SIGNIN_ERROR, payload: "Invalid login credentials"});
-        throw error
+        dispatch({type: LOADING, payload: false});
+        dispatch({type: ERROR, payload: error.message});
     }
 };
 
@@ -54,11 +54,7 @@ export const signOut = () => async dispatch => {
         await firebase.auth().signOut()
         dispatch({type: SIGNOUT_SUCCESS, payload: null})
     } catch (error) {
-        dispatch({
-            type: SIGNOUT_ERROR,
-            payload: "...some error message for the user..."
-        });
-        throw error
+        dispatch({type: ERROR, payload: error.message});
     }
 };
 

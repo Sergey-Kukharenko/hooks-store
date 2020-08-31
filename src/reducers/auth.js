@@ -22,14 +22,6 @@ const authReducer = (state = initialState, {type, payload}) => {
                 user: payload
             }
 
-        case SIGNUP_ERROR:
-            console.log('SIGNUP_ERROR')
-            console.log(payload)
-            return {
-                ...state,
-                error: payload
-            }
-
         case SIGNIN_SUCCESS:
             console.log('login success');
             return {

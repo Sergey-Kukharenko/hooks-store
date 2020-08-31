@@ -4,15 +4,15 @@ import {increment} from "../actions";
 import {signUp, signOut} from "../actions/auth";
 import {isNull} from "../utils";
 import {Redirect} from "react-router";
+import {Link} from "react-router-dom";
+import {MDBCardImage} from "mdbreact";
 
 const SignUp = () => {
 
-    // const [userName, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    // const [userNameFocus, setUserNameFocus] = useState(false);
     const [userEmailFocus, setUserEmailFocus] = useState(false);
     const [userPasswordFocus, setUserPasswordFocus] = useState(false);
     const [userConfirmPasswordFocus, setUserConfirmPasswordFocus] = useState(false);
@@ -47,7 +47,6 @@ const SignUp = () => {
     };
 
     return (
-
             !isNull(user)
                 ?  <Redirect to='/'/>
                 : <div className="container">
@@ -56,23 +55,7 @@ const SignUp = () => {
                             <div className="card">
                                 <div className="card-body">
                                     <form onSubmit={handleSubmit}>
-                                        {/*<div className="md-form md-outline mt-0">*/}
-                                        {/*    <input*/}
-                                        {/*        type="text"*/}
-                                        {/*        id="firstName"*/}
-                                        {/*        className="form-control"*/}
-                                        {/*        value={userName}*/}
-                                        {/*        onChange={event => setUserName(event.target.value)}*/}
-                                        {/*        onFocus={() => setUserNameFocus(true)}*/}
-                                        {/*        onBlur={() => setUserNameFocus(false)}*/}
-                                        {/*    />*/}
-                                        {/*    <label*/}
-                                        {/*        htmlFor="firstName"*/}
-                                        {/*        className={(userNameFocus || userName.length > 0) ? "active" : null}*/}
-                                        {/*    >*/}
-                                        {/*        First name*/}
-                                        {/*    </label>*/}
-                                        {/*</div>*/}
+                                        <p className="h4 text-center py-4">Sign up</p>
                                         <div className="md-form md-outline mt-0">
                                             <input
                                                 type="text"
@@ -131,11 +114,17 @@ const SignUp = () => {
                                         <div className="text-center mb-2">
                                             <button
                                                 type="submit"
-                                                className="btn btn-primary mb-4 waves-effect waves-light"
+                                                className="btn btn-primary mb-4"
                                                 disabled={!isEnabled}
                                             >
                                                 Sign Up
                                             </button>
+                                            <p className="d-flex justify-content-center">
+                                                <span className="mr-1">Not a member? </span>
+                                                <Link to={`/sign-in`}>
+                                                    Sign in
+                                                </Link>
+                                            </p>
                                         </div>
                                     </form>
                                 </div>

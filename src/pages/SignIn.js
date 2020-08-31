@@ -3,6 +3,8 @@ import {signIn} from "../actions/auth";
 import {useDispatch, useSelector} from "react-redux";
 import {isNull} from "../utils";
 import {Redirect} from "react-router";
+import {Link} from "react-router-dom";
+import {MDBBtn} from "mdbreact";
 
 const SignIn = () => {
 
@@ -50,6 +52,7 @@ const SignIn = () => {
                         <div className="card">
                             <div className="card-body">
                                 <form onSubmit={handleSubmit}>
+                                    <p className="h4 text-center py-4">Sign in</p>
                                     {/*<div className="md-form md-outline mt-0">*/}
                                     {/*    <input*/}
                                     {/*        type="text"*/}
@@ -106,13 +109,27 @@ const SignIn = () => {
                                         }
                                     </div>
                                     <div className="text-center mb-2">
-                                        <button
+                                        {/*<button*/}
+                                        {/*    type="submit"*/}
+                                        {/*    className="btn btn-primary mb-4"*/}
+                                        {/*    disabled={!isEnabled}*/}
+                                        {/*>*/}
+                                        {/*    Sign Up*/}
+                                        {/*</button>*/}
+                                        <MDBBtn
                                             type="submit"
-                                            className="btn btn-primary mb-4 waves-effect waves-light"
+                                            color="primary"
+                                            className="mb-4"
                                             disabled={!isEnabled}
                                         >
-                                            Sign Up
-                                        </button>
+                                            Click
+                                        </MDBBtn>
+                                        <p className="d-flex justify-content-center">
+                                            <span className="mr-1">Not a member? </span>
+                                            <Link to={`/sign-up`}>
+                                                Sign up
+                                            </Link>
+                                        </p>
                                     </div>
                                 </form>
                             </div>
