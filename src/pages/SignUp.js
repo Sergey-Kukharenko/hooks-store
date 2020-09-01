@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {increment} from "../actions";
-import {signUp, signOut} from "../actions/auth";
+import {signUp} from "../actions/auth";
 import {isNull} from "../utils";
 import {Redirect} from "react-router";
 import {Link} from "react-router-dom";
-import {MDBCardImage} from "mdbreact";
 
 const SignUp = () => {
 

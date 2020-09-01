@@ -8,9 +8,7 @@ import {
     LOADING,
     RESET_ERROR,
     RESET_SUCCESS,
-    SIGNIN_ERROR,
     SIGNIN_SUCCESS,
-    SIGNOUT_ERROR,
     SIGNOUT_SUCCESS,
     SIGNUP_SUCCESS
 } from "./types";

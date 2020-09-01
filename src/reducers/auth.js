@@ -1,9 +1,7 @@
 import {
     SIGNUP_SUCCESS,
-    SIGNUP_ERROR,
     SIGNOUT_SUCCESS,
     SIGNIN_SUCCESS,
-    SIGNIN_ERROR,
     AUTO_SIGNIN_SUCCESS
 } from "../actions/types";
 
@@ -28,10 +26,6 @@ const authReducer = (state = initialState, {type, payload}) => {
                 ...state,
                 user: payload
             }
-
-        case SIGNIN_ERROR:
-            console.log('login error');
-            return state
 
         case AUTO_SIGNIN_SUCCESS:
             console.log('AUTO_SIGNIN_SUCCESS');

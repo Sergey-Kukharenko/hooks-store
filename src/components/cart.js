@@ -10,7 +10,10 @@ const Cart = ({cart, addCart}) => {
                     <MDBCardImage className="card-img-top" src={cart.img} waves/>
                 </Link>
                 <MDBCardBody>
-                    <MDBCardTitle>{cart.title}</MDBCardTitle>
+                    <div className="d-flex justify-content-between">
+                        <MDBCardTitle className="flex mr-1">{cart.title}</MDBCardTitle>
+                        <h4>$ {cart.price}</h4>
+                    </div>
                     <MDBCardText>{cart.info}</MDBCardText>
                     <MDBBtn onClick={() => addCart(cart)}>Click</MDBBtn>
                 </MDBCardBody>

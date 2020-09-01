@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 
 const BasketCart = ({cart, removeCart, inc, dec, change}) => {
 
@@ -15,12 +16,15 @@ const BasketCart = ({cart, removeCart, inc, dec, change}) => {
                 <div className="col-md-5 col-lg-3 col-xl-3">
                     <div className="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
                         <img className="img-fluid w-100" src={cart.img} alt="Sample"/>
-                        <div>
-                            <div className="mask waves-effect waves-light">
-                                <img className="img-fluid w-100" src={cart.img} alt={cart.title}/>
-                                <div className="mask rgba-black-slight waves-effect waves-light"></div>
+
+                        <Link to={`/carts/${cart.id}`}>
+                            <div>
+                                <div className="mask waves-effect waves-light">
+                                    <img className="img-fluid w-100" src={cart.img} alt={cart.title}/>
+                                    <div className="mask rgba-black-slight waves-effect waves-light"></div>
+                                </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
                 <div className="col-md-7 col-lg-9 col-xl-9">

@@ -51,23 +51,23 @@ const Header = () => {
                                 Shop
                             </div>
                         </li>
-                        <li className="nav-item pl-2 mb-2 mb-md-0">
+                        <li className="nav-item mb-2 mb-md-0">
                             {
                                 user
-                                    ? <a
-                                        className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light"
+                                    ? <div
+                                        className="nav-link"
                                         onClick={() => {
                                             dispatch(signOut())
                                         }}
                                     >
-                                        Sign Out
-                                    </a>
+                                        <i className="fas fa-sign-out-alt"></i>
+                                    </div>
 
                                     : <Link
-                                        className="btn btn-outline-info btn-md btn-rounded btn-navbar waves-effect waves-light"
+                                        className="nav-link"
                                         to={'/sign-in'}
                                     >
-                                        Sign in
+                                        <i className="fas fa-user"></i>
                                     </Link>
                             }
 

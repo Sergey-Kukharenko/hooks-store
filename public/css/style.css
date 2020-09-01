@@ -45,3 +45,11 @@
     opacity: 1;
     transform: translateY(0%);
 }
+
+.nav-link {
+    cursor: pointer;
+}
+
+.fa-sign-out-alt {
+    font-size: 18px;
+}
