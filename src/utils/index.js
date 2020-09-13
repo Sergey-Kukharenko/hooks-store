@@ -83,3 +83,12 @@ export const replaceItem = (array, obj) => {
 }
 
 export const multiplyInItem = (a, b) => arr => arr.map(item => item[a] * item[b])
+
+export const isValidEmail = email =>
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        email
+    );
+
+export const checkInputs = (email, password, confirm = password) => {
+    return email.length > 0 && isValidEmail(email) > 0 && password.length > 1 && (password === confirm);
+}
