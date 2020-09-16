@@ -12,7 +12,7 @@ export const arrData = (count) => {
             // id: idx,
             // img: `https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(${idx}).jpg`,
             id: i,
-            img: `/images/${i}.jpg`,
+            img: `/images/thumbnail/${i}.jpg`,
             price: randomBetween(30, 1000),
             quantity: 0,
             title: lorem.generateWords(randomBetween(1, 3)),

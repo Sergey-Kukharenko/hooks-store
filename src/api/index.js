@@ -1,6 +1,6 @@
 import {findObjBy} from "../utils";
 import {arrData} from "../utils/loops/createData";
-const carts = arrData(3)
+const carts = arrData(12)
 
 export const fetchApi = async () => {
     // return await superagent.get('/api') // => в реальном приложении
